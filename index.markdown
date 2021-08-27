@@ -5,3 +5,7 @@
 layout: home
 ---
 Awesome website this is
+Post 
+[Post](/_posts/2021-02-07-welcome-to-jekyll.markdown)
+<br>
+<button type="button" class="btn btn-primary">Primary</button>
