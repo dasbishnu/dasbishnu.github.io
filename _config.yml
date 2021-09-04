@@ -32,7 +32,7 @@ repository: dasbishnu/dasbishnu.github.io
 #theme: minima
 #remote-theme:  daviddarnes/alembic  ,
 show_downloads: true
-theme: jekyll-theme-architect
+theme: jekyll-theme-tactile
 plugins:
   - jekyll-feed,
   - jekyll-remote-theme,
