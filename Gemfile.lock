@@ -261,7 +261,7 @@ DEPENDENCIES
   github-pages
   jekyll-feed (~> 0.12)
   jekyll-remote-theme
-  minima (~> 2.5)
+  jekyll-theme-architect
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
