@@ -10,10 +10,6 @@ Post
 <br><br><br>
 <a href="blog.html" class="btn btn-info" role="button">Read my blog</a>
 
----
-layout: default
----
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
