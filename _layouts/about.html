@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+
+<section>
+    <div class="section-title">
+        <h2><span>{{ page.title }}</span></h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="article-post">
+                {{content}}
+            </div>
+        </div>
+
+        <div class="col-sm-4">{% include goodreads-currently-reading.html %}
+        </div>
+    </div>
+
+    <div class="row">
+        <h2><span>Bishnu's Bookshelf</span></h2>
+        {% include goodreads-read.html %}
+    </div>
+    {% if page.comments == true %}
+
+    <div id="comments" class="row mb-5">
+        <div class="col-md-8">
+            {% include disqus.html %}
+        </div>
+    </div>
+
+    {% endif %}
+</section>
