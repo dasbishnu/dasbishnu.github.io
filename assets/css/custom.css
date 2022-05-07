@@ -1,0 +1,36 @@
+/* use this css to override default set by bootstrap and mediumish theme */
+.image-caption {
+    font-size: 75%;
+    padding-top: 0px;
+    opacity: .8;
+}
+/*dark mode*/
+.dark {
+    background-color: #1a1d24; 
+    color: #efefef;
+}
+.dark .article-post{
+    color: #efefef;
+}
+.d-none {
+    display: none;
+}
+.w-initial-md {
+    width: initial;
+}
+.theme-selector {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    background-color: #fff;
+}
+
+.align-items-center {
+    align-items: center;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.flex {
+    display: flex;
+}

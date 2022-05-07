@@ -17,43 +17,86 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+# Site
+name: "Bishnu Das"
+title: "Bishnu Das"
+description: "I love building products. I work as Senior Product Manager at one of the fastest growing edtech startups in India. I am responsible for the website product. My interests are varied and I mostly find myself musing in the interesection of technology and business."
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
+#baseurl: /mediumish-theme-jekyll
+#google_analytics: 'UA-46278016-1'
+#disqus: 'demowebsite'
+#mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+include: ["_pages"]
+permalink: /:title/
 
-title: Bishnu Das
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Personal Website
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://bishnudas.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  dasbishnu
-repository: dasbishnu/dasbishnu.github.io
+
+# Authors
+authors:
+  bishnu:
+    name: Bishnu
+    display_name: Bishnu
+    avatar: 'assets/images/avatar.png'
+    gravatar: e56154546cf4be74e393c62d1ae9f9d4
+    email: mail@bishnudas.com
+    web: https://www.bishnudas.com
+    twitter: https://twitter.com/
+    description: "Bishnu Das"
+  # john:
+  #   name: John
+  #   display_name: John    
+  #   avatar: 'assets/images/avatar.png'
+  #   gravatar: b1cc14991db7a456fcd761680bbc8f81
+  #   email: wowthemesnet@gmail.com
+  #   web: https://www.wowthemes.net
+  #   twitter: https://twitter.com/wowthemesnet
+  #   description: "This is the author box. Write a short description of the author here. You are currently previewing Mediumish demo, a Jekyll template compatible with Github pages."
 
 # Build settings
+#remote_theme: jirrian/jekyll-theme-image-grid@main
+remote_theme: wowthemesnet/mediumish-theme-jekyll@master
 #theme: minima
-#remote-theme:  daviddarnes/alembic  ,
-show_downloads: true
-theme: jekyll-theme-architect
+# Plugins
 plugins:
-  - jekyll-feed,
-  - jekyll-remote-theme,
-collections:
-  authors:
-    output: true
-defaults:
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+  - kramdown
+  - rouge
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "disabled"
+adsense-data-ad-client: "ca-pub-3412143450191416"
+adsense-data-ad-slot: "1363087678"
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
+
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -73,3 +116,8 @@ defaults:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
+
+
+
+

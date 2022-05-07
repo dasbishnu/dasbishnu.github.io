@@ -1,0 +1,87 @@
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mediumnavigation nav-down">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mediumnavigation nav-down"> -->
+
+    <div class="container pr-0">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="{{ site.baseurl }}/">
+            <!-- <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}"> -->
+            Bishnu Das
+        </a>
+        <!-- End Logo -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+
+            <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                {% if page.url == "/" %}
+                <li class="nav-item active">
+                    {% else %}
+                <li class="nav-item">
+                    {% endif %}
+                    <a class="nav-link" href="{{ site.baseurl }}/index.html">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i
+                            class="fab fa-linkedin"></i> Linkedin</a>
+                </li>
+
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i
+                            class="fab fa-snapchat-ghost"></i> Twitter</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% assign categories_list = site.categories %}
+                        {% if categories_list.first[0] == null %}
+                        {% for category in categories_list %}
+                        <a class="dropdown-item href=" {{site.baseurl}}/categories#{{ category | url_escape | strip |
+                            replace: ' ' , '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a>
+                        {% endfor %}
+                        {% else %}
+                        {% for category in categories_list %}
+                        <a class="dropdown-item"
+                            href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{
+                            category[0] | camelcase }} ({{ category[1].size }})</a>
+                        {% endfor %}
+                        {% endif %}
+                        {% assign categories_list = nil %}
+                    </div>
+                </li>
+
+                {% include search-lunr.html %}
+
+            </ul>
+
+            <!-- End Menu -->
+            <div class="flex  w-initial-md">
+                <button id="theme-selector" class="theme-selector flex justify-content-center align-items-center">
+                        <img id="light-mode" src="{{ site.baseurl }}/assets/images/sun.svg" alt="sun" height="24" width="24" class="">
+                        <img id="dark-mode" src="{{ site.baseurl }}/assets/images/moon.svg" alt="moon" height="24" width="24" class="d-none">
+                </button>
+            </div>            
+
+    </div>
+</nav>
+
+<!-- End Navigation
+================================================== -->
