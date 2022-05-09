@@ -1,12 +1,19 @@
+<!-- consent manager -->
+<script src="https://cmp.osano.com/Azqe4tT5M8fEA1t8/19589848-37a6-4eb2-81e3-9e845c4ed9b0/osano.js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'pageType': '{{page.layout}}' });
+</script>
+
 <!-- Google Tag Manager -->
 <script>(function (w, d, s, l, i) {
-    w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-            new Date().getTime(), event: 'gtm.js'
-    }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', '{{site.google_tag_manager}}');</script>
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', '{{site.google_tag_manager}}');</script>
 <!-- End Google Tag Manager -->
 
 <!-- Start Google Optimize -->
@@ -15,12 +22,21 @@
 
 <!-- Hotjar Tracking Code for bishnudas.com -->
 <script>
-(function (h, o, t, j, a, r) {
-    h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-    h._hjSettings = { hjid: 2580428, hjsv: 6 };
-    a = o.getElementsByTagName('head')[0];
-    r = o.createElement('script'); r.async = 1;
-    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-    a.appendChild(r);
-})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+        h._hjSettings = { hjid: 2580428, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script'); r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
+<script>
+    function triggerCustomEvent(custom_event_name) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': custom_event_name
+        });
+    }
+
 </script>
