@@ -24,12 +24,13 @@ description: "I love building products. I work as Senior Product Manager at one 
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 #baseurl: /mediumish-theme-jekyll
-google_tag_manager: 'GTM-WCZ33HG'
+google_tag_manager: 'GTM-M54R3FF'
 disqus: 'dasbishnu'
 #mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 include: ["_pages"]
 permalink: /:title/
-
+#manage build variables here
+environment: staging
 
 # Authors
 authors:
@@ -117,7 +118,3 @@ lazyimages: "disabled"
 #   - vendor/gems/
 #   - vendor/ruby/
 exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
-
-
-
-
