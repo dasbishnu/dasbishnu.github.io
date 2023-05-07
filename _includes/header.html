@@ -6,7 +6,7 @@
     <div class="container pr-0">
 
         <!-- Begin Logo -->
-        <a class="navbar-brand" href="{{ site.baseurl }}/">
+        <a class="navbar-brand" href="{{ site.baseurl }}/" onclick='stickynav_link_clicked(this.text.trim(),this.href)'>
             <!-- <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}"> -->
             Bishnu Das
         </a>
@@ -28,26 +28,30 @@
                     {% else %}
                 <li class="nav-item">
                     {% endif %}
-                    <a class="nav-link" href="{{ site.baseurl }}/index.html">Blog</a>
+                    <a class="nav-link" href="{{ site.baseurl }}/index.html"
+                        onclick='stickynav_link_clicked(this.text.trim(),this.href)' target="_blank">Blog</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
+                    <a class="nav-link" href="{{ site.baseurl }}/about"
+                        onclick='stickynav_link_clicked(this.text.trim(),this.href)' target="_blank">About</a>
                 </li>
 
                 <li class="nav-item">
-                    <a target="_blank" class="nav-link" href="https://www.linkedin.com/in/dasbishnu/"><i
-                            class="fab fa-linkedin"></i> Linkedin</a>
+                    <a target="_blank" class="nav-link" href="https://www.linkedin.com/in/dasbishnu/"
+                        onclick='stickynav_link_clicked(this.text.trim(),this.href)'><i class="fab fa-linkedin"></i>
+                        Linkedin</a>
                 </li>
 
                 <li class="nav-item">
-                    <a target="_blank" class="nav-link" href="https://twitter.com/thebishnudas"><i
-                            class="fab fa-snapchat-ghost"></i> Twitter</a>
+                    <a target="_blank" class="nav-link" href="https://twitter.com/thebishnudas"
+                        onclick='stickynav_link_clicked(this.text.trim(),this.href)'><i
+                            class="fab fa-twitter"></i> Twitter</a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                        aria-haspopup="true" aria-expanded="false" onclick='stickynav_link_clicked(this.text.trim(),this.href)'>
                         Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -60,7 +64,8 @@
                         {% else %}
                         {% for category in categories_list %}
                         <a class="dropdown-item"
-                            href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}">{{
+                            href="{{site.baseurl}}/categories#{{ category[0] | url_escape | strip | replace: ' ', '-' }}"
+                            onclick='stickynav_link_clicked(this.text.trim(),this.href)' target="_blank">{{
                             category[0] | camelcase }} ({{ category[1].size }})</a>
                         {% endfor %}
                         {% endif %}
@@ -75,13 +80,28 @@
             <!-- End Menu -->
             <div class="flex  w-initial-md">
                 <button id="theme-selector" class="theme-selector flex justify-content-center align-items-center">
-                        <img id="light-mode" src="{{ site.baseurl }}/assets/images/sun.svg" alt="sun" height="24" width="24" class="">
-                        <img id="dark-mode" src="{{ site.baseurl }}/assets/images/moon.svg" alt="moon" height="24" width="24" class="d-none">
+                    <img id="light-mode" src="{{ site.baseurl }}/assets/images/sun.svg" alt="sun" height="24" width="24"
+                        class="">
+                    <img id="dark-mode" src="{{ site.baseurl }}/assets/images/moon.svg" alt="moon" height="24"
+                        width="24" class="d-none">
                 </button>
-            </div>            
+            </div>
 
-    </div>
+        </div>
 </nav>
 
 <!-- End Navigation
 ================================================== -->
+<script>
+    function stickynav_link_clicked(element_text, element_url) {
+        payload = {};
+        payload.event = "dl_link_clicked";
+        payload.section = "header";
+        payload.segment = "sticky nav bar";
+        payload.element_text = element_text;
+        if (element_url != null) {
+            payload.element_url = element_url;
+        }
+        triggerCustomEvent(payload)
+    }
+</script>
