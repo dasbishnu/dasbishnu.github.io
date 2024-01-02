@@ -3,11 +3,6 @@ ARG VARIANT=2.7-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 COPY library-scripts/meta.env /usr/local/etc/vscode-dev-containers
 
-# Setting ruby to <3.1 and >2.5 so as to make it work for the linux 
-# nokogiri-1.11.1-x86_64-linux requires ruby version < 3.1.dev, >= 2.5, which is incompatible with the current version, ruby 3.2.2p53
-RUN rbenv install 3.0.0
-RUN rbenv global 3.0.0
-
 # ENV Variables required by Jekyll
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
