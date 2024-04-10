@@ -34,3 +34,11 @@
 .flex {
     display: flex;
 }
+.language-javascript.highlighter-rouge::before {
+    content: "JavaScript";
+    float: right;
+    margin-top: -1.5em; /* Adjust as needed */
+    margin-right: 10px; /* Adjust as needed */
+    font-size: 0.8em; /* Adjust as needed */
+    color: #4ec186; /* Adjust color as needed */
+}
