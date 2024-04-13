@@ -1,3 +1,12 @@
+<script>
+    initDataLayer("{{page.layout}}");
+    function initDataLayer(pageType) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'pageType': pageType
+        });
+    }
+</script>
 <!-- Google Tag Manager -->
 <script>(function (w, d, s, l, i) {
         w[l] = w[l] || []; w[l].push({
@@ -7,14 +16,12 @@
             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', '{{site.google_tag_manager}}');
-    </script>
+</script>
 <!-- End Google Tag Manager -->
 
 <script>
-    function triggerCustomEvent(custom_event_name) {
+    async function triggerCustomEvent(payload) {
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': custom_event_name
-        });
+        window.dataLayer.push(payload);
     }
 </script>
