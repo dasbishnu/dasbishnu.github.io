@@ -12,10 +12,14 @@ git clone https://github.com/microsoft/vscode-dev-containers.git
 ```
 **Merging branches**
 ```bash
-#Get the latest pull from origin
-git pull origin staging
+#Switch to preprod
+git checkout preprod
 # Perform a diff of the staging branch that has your changes and except the files mentioned in the grep -v command and load them to local preprod branch
-git diff preprod staging --name-only | grep -v -e '.devcontainer' -e '.gitpod' -e '_config.yml' -e 'CNAME' -e 'Gemfile' | sed 's/.*/"&"/' | xargs git checkout preprod
+git diff --name-only staging preprod \
+  | grep -v -e '.devcontainer' -e '.gitpod' -e '_config.yml' -e 'CNAME' -e 'Gemfile'  \
+  | xargs -I {} git checkout staging -- "{}"
+git checkout preprod
+git add .
 #Now check if the changes you want are staged in the Source Control.Make necessary changes and commit
 git commit -m 'Merged files to preprod from staging'
 #Push to origin/preprod
@@ -37,5 +41,5 @@ git fetch origin
 #Get latest main from origin
 git reset --hard origin/main
 #Push your local changes to a remote repository and simultaneously set up tracking information for the branch
-git push --set-upstream origin <branch name>
+git push --set-upstream origin branch_name
 ```
