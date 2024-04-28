@@ -6,24 +6,38 @@ JEKYLL_ENV=production bundle exec jekyll serve --livereload
 bundle exec jekyll serve --livereload
 #First Time users run this instead
 bundle install && bundle exec jekyll serve --livereload
-#copy jekyll container folder from
-git clone https://github.com/microsoft/vscode-dev-containers.git
+#if you want to preview drafts
+bundle install && bundle exec jekyll serve --livereload --drafts
+#if you want to clean the _sites directory
+bundle install &&  bundle exec jekyll clean &&  bundle exec jekyll serve --livereload --drafts
+#Instructions to copy jekyll dev container
+cd ..
+#Ensure you are in /workspace folder or a folder outside your current working directory 
+git clone https://github.com/devcontainers/images.git
+cd images
+cp -r src/jekyll/.devcontainer /workspace/dasbishnu.github.io
 #and rebuild github code space
 ```
 **Merging branches**
 ```bash
-#Switch to preprod
+# Switch to preprod
 git checkout preprod
-# Perform a diff of the staging branch that has your changes and except the files mentioned in the grep -v command and load them to local preprod branch
+
+# Perform a diff of the staging branch that has your changes and exclude the files mentioned in the grep -v command,
+# then load them to the local preprod branch
 git diff --name-only staging preprod \
   | grep -v -e '.devcontainer' -e '.gitpod' -e '_config.yml' -e 'CNAME' -e 'Gemfile'  \
   | xargs -I {} git checkout staging -- "{}"
+
+# Switch back to preprod branch
 git checkout preprod
-git add .
-#Now check if the changes you want are staged in the Source Control.Make necessary changes and commit
+# Stage all changes, including modifications, deletions, and newly created files
+git add -A
+# Commit the changes
 git commit -m 'Merged files to preprod from staging'
-#Push to origin/preprod
+# Push the changes to the remote preprod branch
 git push origin preprod
+
 #Now you can merge preprod to main
 git checkout main
 git merge preprod
